@@ -1,8 +1,5 @@
-﻿using B3.WebApi.Controllers;
-using B3.WebApi.Domain.Model;
-using B3.WebApi.Domain.Services;
+﻿using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 
 namespace B3.WebApi.Testes
@@ -57,6 +54,7 @@ namespace B3.WebApi.Testes
             {
                 Assert.Fail($"Exceção inesperada: {ex.Message}");
             }
+
         }
     }
 }
