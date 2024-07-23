@@ -5,9 +5,13 @@ API criada para realizar Cálculo CDB de acordo com as formulas passadas e com t
 
 ## Técnologias utilizadas
 Visual Studio 2022 
+
 ASP.NET Core 8
+
 Swagger
+
 Angular
+
 Node.Js
 
 ## Funcionalidade
