@@ -1,3 +1,4 @@
+using B3.WebApi.Domain.Model;
 using B3.WebApi.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,10 +9,12 @@ namespace B3.WebApi.Controllers;
 public class CalculoCdbController : ControllerBase
 {
     private readonly ICalculoCdbService _calculoCdbService;
-    
-    public CalculoCdbController(ICalculoCdbService calculoCdbService)
+    private readonly IValidacoes _validacoes;
+
+    public CalculoCdbController(ICalculoCdbService calculoCdbService, IValidacoes validacoes)
     {
         _calculoCdbService = calculoCdbService;
+        _validacoes = validacoes;
     }
 
     /// <summary>
@@ -22,18 +25,15 @@ public class CalculoCdbController : ControllerBase
     /// <response code="200">Success</response>
     /// <response code="400">BadRequest</response>
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CalculoCdbResponse))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
     public IActionResult GetCalculo(double valorInicial, int meses)
     {
         try
         {
-            if (valorInicial <= 0)
-                return BadRequest("O Valor inicial deve ser positivo");
-            
-            if (meses <= 1)
-                return BadRequest("A quantidade de meses deve ser maior que 1");
-            
+            _validacoes.Validar(valorInicial, meses);
+
             var response = _calculoCdbService.CalculaCdb(valorInicial, meses);
             
             return Ok(response);

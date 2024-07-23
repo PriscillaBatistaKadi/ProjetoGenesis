@@ -1,7 +1,6 @@
-using B3.WebApi.Domain.Services;
-using Xunit;
+﻿using B3.WebApi.Domain.Services;
 
-namespace B3.WebApi.Teste
+namespace B3.WebApi.Testes
 {
     public class CalculoCdbServiceTestes
     {
@@ -22,10 +21,10 @@ namespace B3.WebApi.Teste
         }
 
         [Theory]
-        [InlineData(100.50,6,105.15)]
-        [InlineData(100.50,12,110.40)]
-        [InlineData(100.50,24,122.17)]
-        [InlineData(100.50,50,153.63)]
+        [InlineData(100.50, 6, 105.15)]
+        [InlineData(100.50, 12, 110.40)]
+        [InlineData(100.50, 24, 122.17)]
+        [InlineData(100.50, 50, 153.63)]
         public void ValorLiquidoCalculadoCorretamente(double valorInicial, int meses, double expectedValorLiquido)
         {
             // Arrange
