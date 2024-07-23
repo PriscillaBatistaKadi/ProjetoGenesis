@@ -53,4 +53,21 @@ public class CalculoCdbControllerTestes
         var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
         Assert.Equal($"Erro encontrado: {serviceException.Message}", badRequestResult.Value);
     }
+
+    [Fact]
+    public void GetCalculo_Sucesso()
+    {
+        // Arrange
+        double valorInicial = 1000;
+        int meses = 12;
+        _mockValidacoes.Setup(v => v.Validar(valorInicial, meses));
+        _mockCalculoCdbService.Setup(s => s.CalculaCdb(valorInicial, meses))
+            .Returns(new CalculoCdbResponse());
+
+        // Act
+        var result = _controller.GetCalculo(valorInicial, meses);
+
+        // Assert
+        Assert.IsType<OkObjectResult>(result);
+    }
 }

@@ -1,5 +1,8 @@
-﻿using B3.WebApi.Domain.Services;
+﻿using B3.WebApi.Controllers;
+using B3.WebApi.Domain.Model;
+using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 
 namespace B3.WebApi.Testes
@@ -22,39 +25,29 @@ namespace B3.WebApi.Testes
         [InlineData(100, 0, "A quantidade de meses deve ser maior que 1")]
         [InlineData(200, -10, "A quantidade de meses deve ser maior que 1")]
 
-        public void ArgumentExceptionQuandoValorInicialMenorOuIgualAZero(double valorInicial, int meses, string mensagemEsperada)
+        public void ArgumentExceptionQuandoValorInicialMenorOuIgualAZero(double valorInicial, int meses,
+            string mensagemEsperada)
         {
             // Arrange
             _mockValidacoes.Setup(v => v.Validar(valorInicial, meses)).Throws(new ArgumentException(mensagemEsperada));
 
-            // Act + Assert
+            // Act
             var ex = Assert.Throws<ArgumentException>(() => _validacoesService.Validar(valorInicial, meses));
+
+            //Assert
             Assert.Equal(mensagemEsperada, ex.Message);
         }
-
 
         [Theory]
         [InlineData(100, 2)] // Exemplo de dados válidos
         [InlineData(500, 10)] // Outro exemplo de dados válidos
         public void SemExceptionQuandoValoresValidos(double valorInicial, int meses)
         {
-            // Arrange & Act
-            try
-            {
-                _validacoesService.Validar(valorInicial, meses);
+            // Act
+            var ex = Record.Exception(() => _validacoesService.Validar(valorInicial, meses));
 
-                // Assert (se não lançou exceção, o teste passa automaticamente)
-            }
-            catch (ArgumentException ex)
-            {
-                // Se lançou ArgumentException inesperado, falha o teste
-                Assert.Fail($"Exceção inesperada: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail($"Exceção inesperada: {ex.Message}");
-            }
-
+            //Assert
+            Assert.Null(ex);
         }
     }
 }
