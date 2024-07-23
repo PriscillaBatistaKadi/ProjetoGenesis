@@ -1,22 +1,43 @@
 
-# Projeto Cálculo CDB
+# 📚Projeto Cálculo CDB
 
 API criada para realizar Cálculo CDB de acordo com as formulas passadas e com tela para realizar os cálculos
 
-## Técnologias utilizadas
-Visual Studio 2022 
 
-ASP.NET Core 8
+## Tecnologias
 
-Swagger
+- Visual Studio 2022
+- ASP.NET Core 8
+- Angular
+- Node.Js
+- Swagger
 
-Angular
 
-Node.Js
+## Funcionalidades
 
-## Funcionalidade
+Tela com campos de entrada para Valor do Monetário, sendo este tendo que ser um valor positivo e o prazo em Meses, sendo superior a 1 mes, retornando os resultados Bruto e Líquido.
+## Rodando localmente (Visual Studio)
 
-Tela com campos de entrada para Valor do Monetário, sendo este tendo que ser um valor positivo e o prazo em Meses, sendo superior a 1 mes , retornando os resultados Bruto e Líquido
-## Para Executar
+Clone o projeto
 
-Será necessario rodar o npm install dentro do diretorio front para realizar os testes do frontend Os testes da app dotnet estão em no diretorio B3.Web.Api.Teste
+```bash
+  git clone https://github.com/PriscillaBatistaKadi/ProjetoGenesis.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd B3.FrontEnd\b3.frontend.client
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+- Solução 'ProjetoGenesis' > Propriedade
+- Selecionar Vários Projetos de inicialização, 
+- Marcar B3.WebApi,b3.fronend.client como ação iniciar
