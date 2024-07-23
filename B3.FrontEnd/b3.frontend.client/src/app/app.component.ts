@@ -19,19 +19,8 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    //this.getForecasts();
   }
 
-  //getForecasts() {
-  //  this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-  //    (result) => {
-  //      this.forecasts = result;
-  //    },
-  //    (error) => {
-  //      console.error(error);
-  //    }
-  //  );
-  //}
 
   title = 'b3.frontend.client';
 }

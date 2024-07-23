@@ -1,4 +1,3 @@
-using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

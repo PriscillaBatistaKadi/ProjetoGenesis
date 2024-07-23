@@ -3,9 +3,13 @@ using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 
+
+namespace B3.WebApi;
+
 [ExcludeFromCodeCoverage]
 public class Program
 {
+
     protected Program() { }
     public static void Main(string[] args)
     {
@@ -26,8 +30,7 @@ public class Program
                 Contact = new OpenApiContact
                 {
                     Name = "PriscillaBatista",
-                    Email = "pri.batista.lima@gmail.com",
-                    Url = new Uri("https://www.linkedin.com/in/priscilla-batista-8211048b/")
+                    Email = "pri.batista.lima@gmail.com"
                 }
             });
 
