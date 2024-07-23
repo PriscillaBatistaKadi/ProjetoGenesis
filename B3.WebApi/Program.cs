@@ -3,7 +3,7 @@ using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 
-
+[ExcludeFromCodeCoverage]
 public class Program
 {
     protected Program() { }
@@ -72,4 +72,6 @@ public class Program
             });
         });
     }
+
+
 }

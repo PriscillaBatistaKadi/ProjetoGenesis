@@ -16,4 +16,8 @@
         <p>Resultado Bruto: {{ resultadoInvestimento.valorBruto | currency:'BRL' }}</p>
         <p>Resultado Líquido: {{ resultadoInvestimento.valorLiquido | currency:'BRL' }}</p>
     </div>
+
+    <div *ngIf="erroAoCalcular">
+        <p>{{ erroAoCalcular }}</p>
+    </div>
 </div>

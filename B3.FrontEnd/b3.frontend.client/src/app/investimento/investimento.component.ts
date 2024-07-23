@@ -19,17 +19,25 @@ export class InvestimentoComponent {
 
   public resultadoInvestimento: InvestimentoResultado = {
     valorBruto: 0,
-    valorLiquido: 0
+    valorLiquido: 0,
+    erroAoCalcular: '',
   };
 
+  erroAoCalcular: string | undefined;
+
   calcularInvestimento(): void {
+
 
     console.log(this.investimento);
     this.calculoService.efetuarCalculo(this.investimento)
       .subscribe(resultado => {
         this.resultadoInvestimento = resultado;
-        console.log(this.resultadoInvestimento);
-      });
+      },
+        erro => {
+          this.resultadoInvestimento.valorBruto = 0;
+          this.resultadoInvestimento.valorLiquido = 0;
+          this.erroAoCalcular = erro.error;
+        });
   }
 
 }
