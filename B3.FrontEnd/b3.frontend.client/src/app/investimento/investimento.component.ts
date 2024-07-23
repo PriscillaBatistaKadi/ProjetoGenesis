@@ -27,17 +27,18 @@ export class InvestimentoComponent {
 
   calcularInvestimento(): void {
 
+    this.resultadoInvestimento.erroAoCalcular = "";
 
-    console.log(this.investimento);
-    this.calculoService.efetuarCalculo(this.investimento)
-      .subscribe(resultado => {
+    this.calculoService.efetuarCalculo(this.investimento).subscribe({
+      next: resultado => {
         this.resultadoInvestimento = resultado;
       },
-        erro => {
-          this.resultadoInvestimento.valorBruto = 0;
-          this.resultadoInvestimento.valorLiquido = 0;
-          this.erroAoCalcular = erro.error;
-        });
+      error: erro => {
+        this.resultadoInvestimento.valorBruto = 0;
+        this.resultadoInvestimento.valorLiquido = 0;
+        this.erroAoCalcular = erro.error;
+      }
+    });
   }
 
 }
