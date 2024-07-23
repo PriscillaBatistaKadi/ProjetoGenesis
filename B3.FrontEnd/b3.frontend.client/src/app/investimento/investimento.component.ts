@@ -36,7 +36,7 @@ export class InvestimentoComponent {
       error: erro => {
         this.resultadoInvestimento.valorBruto = 0;
         this.resultadoInvestimento.valorLiquido = 0;
-        this.erroAoCalcular = erro.error;
+        this.resultadoInvestimento.erroAoCalcular = erro.error;
       }
     });
   }

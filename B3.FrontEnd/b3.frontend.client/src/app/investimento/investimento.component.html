@@ -17,7 +17,7 @@
         <p>Resultado Líquido: {{ resultadoInvestimento.valorLiquido | currency:'BRL' }}</p>
     </div>
 
-    <div *ngIf="erroAoCalcular">
-        <p>{{ erroAoCalcular }}</p>
+    <div *ngIf="resultadoInvestimento.erroAoCalcular">
+        <p>{{ resultadoInvestimento.erroAoCalcular }}</p>
     </div>
 </div>
