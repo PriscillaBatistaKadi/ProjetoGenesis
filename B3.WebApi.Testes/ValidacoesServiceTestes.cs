@@ -32,29 +32,27 @@ namespace B3.WebApi.Testes
             Assert.Equal(mensagemEsperada, ex.Message);
         }
 
+      [Theory]
+ [InlineData(100, 2)] // Exemplo de dados válidos
+ [InlineData(500, 10)] // Outro exemplo de dados válidos
+ public void SemExceptionQuandoValoresValidos(double valorInicial, int meses)
+ {
+     // Arrange & Act
+     try
+     {
+         _validacoesService.Validar(valorInicial, meses);
 
-        [Theory]
-        [InlineData(100, 2)] // Exemplo de dados válidos
-        [InlineData(500, 10)] // Outro exemplo de dados válidos
-        public void SemExceptionQuandoValoresValidos(double valorInicial, int meses)
-        {
-            // Arrange & Act
-            try
-            {
-                _validacoesService.Validar(valorInicial, meses);
+         // Assert (se não lançou exceção, o teste passa automaticamente)
+     }
+     catch (ArgumentException ex)
+     {
+         // Se lançou ArgumentException inesperado, falha o teste
+         Assert.Fail($"Exceção inesperada: {ex.Message}");
+     }
+     catch (Exception ex)
+     {
+         Assert.Fail($"Exceção inesperada: {ex.Message}");
+     }
 
-                // Assert (se não lançou exceção, o teste passa automaticamente)
-            }
-            catch (ArgumentException ex)
-            {
-                // Se lançou ArgumentException inesperado, falha o teste
-                Assert.Fail($"Exceção inesperada: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail($"Exceção inesperada: {ex.Message}");
-            }
-
-        }
-    }
+   }
 }
