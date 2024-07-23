@@ -3,7 +3,6 @@ using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 
-
 namespace B3.WebApi;
 
 [ExcludeFromCodeCoverage]

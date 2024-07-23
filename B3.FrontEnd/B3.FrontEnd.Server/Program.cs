@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -30,3 +32,6 @@ app.MapFallbackToFile("/index.html");
 await app.RunAsync();
 
 await Task.CompletedTask;
+
+[ExcludeFromCodeCoverage]
+static partial class Program { }
