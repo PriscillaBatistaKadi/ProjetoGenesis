@@ -1,8 +1,5 @@
-﻿using B3.WebApi.Controllers;
-using B3.WebApi.Domain.Model;
-using B3.WebApi.Domain.Services;
+﻿using B3.WebApi.Domain.Services;
 using B3.WebApi.Domain.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 
 namespace B3.WebApi.Testes
@@ -35,7 +32,7 @@ namespace B3.WebApi.Testes
             Assert.Equal(mensagemEsperada, ex.Message);
         }
 
-         [Theory]
+      [Theory]
  [InlineData(100, 2)] // Exemplo de dados válidos
  [InlineData(500, 10)] // Outro exemplo de dados válidos
  public void SemExceptionQuandoValoresValidos(double valorInicial, int meses)
@@ -57,6 +54,5 @@ namespace B3.WebApi.Testes
          Assert.Fail($"Exceção inesperada: {ex.Message}");
      }
 
-   
-    }
+   }
 }

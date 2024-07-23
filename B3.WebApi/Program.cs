@@ -17,6 +17,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddScoped<ICalculoCdbService, CalculoCdbServiceWrapper>();
+        builder.Services.AddScoped<IValidacoes, ValidacoesService>();
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
